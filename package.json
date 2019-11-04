@@ -1,0 +1,25 @@
+{
+  "name": "zhihi-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=production node app/index",
+    "dev": "nodemon app/index",
+    "lint": "eslint app/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "eslint": "^6.6.0",
+    "koa": "^2.11.0",
+    "koa-parameter": "^3.0.1",
+    "koa-router": "^7.4.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.3",
+    "cross-env": "^6.0.3",
+    "nodemon": "^1.19.4"
+  }
+}

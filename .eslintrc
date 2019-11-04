@@ -1,0 +1,49 @@
+{
+  "env": {
+    "browser": true,
+    "node": true, // 支持 node语法
+    "es6": true // 支持 es6 语法
+  },
+  "extends": "eslint:recommended",
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "legacyDecorators": true
+    }
+  },
+  "rules": {
+    "no-restricted-globals": 0,
+    "default-case": 0,
+    "indent": [
+      "error",
+      2,
+      {
+        "SwitchCase": 1
+      }
+    ],
+    // "linebreak-style": [
+    //   "0",
+    //   "error"
+    // ],
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "no-console": 1,
+    "semi": [
+      "error",
+      "never" // 不使用分号，http://eslint.cn/docs/rules/semi
+    ],
+    "eqeqeq": [ // 使用 ===
+      "error",
+      "always"
+    ],
+    "no-unused-vars": [
+      2,
+      {
+        "vars": "all",
+        "args": "after-used"
+      }
+    ]
+  }
+}
