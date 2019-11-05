@@ -44,6 +44,7 @@
         "vars": "all",
         "args": "after-used"
       }
-    ]
+    ],
+    "require-atomic-updates": 0
   }
 }
