@@ -1,5 +1,7 @@
 const Koa = require('koa')
-const bodyParser = require('koa-bodyparser')
+const path = require('path')
+const koaStatic = require('koa-static')
+const koaBody = require('koa-body')
 const error = require('koa-json-error') // 强大的错误处理
 const parameter = require('koa-parameter') // 全局的参数校验
 const mongoose = require('mongoose')
@@ -14,6 +16,7 @@ mongoose.connect(
 )
 mongoose.connection.on('error', console.error)
 
+app.use(koaStatic(path.join(__dirname, 'public')))
 // 全局错误处理
 app.use(
   error({
@@ -21,7 +24,15 @@ app.use(
       process.env.NODE_ENV === 'production' ? rest : { stack, ...rest }
   })
 )
-app.use(bodyParser())
+app.use(
+  koaBody({
+    multipart: true,
+    formidable: {
+      uploadDir: path.join(__dirname, '/public/uploads'),
+      keepExtensions: true
+    }
+  })
+)
 app.use(parameter(app))
 routing(app)
 
