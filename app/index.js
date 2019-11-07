@@ -12,8 +12,10 @@ const { connectingStr } = require('./config')
 mongoose.connect(
   connectingStr,
   { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false },
+  // eslint-disable-next-line no-console
   () => console.log('mongoodb连接成功了')
 )
+// eslint-disable-next-line no-console
 mongoose.connection.on('error', console.error)
 
 app.use(koaStatic(path.join(__dirname, 'public')))
