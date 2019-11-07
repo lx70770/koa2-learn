@@ -12,3 +12,4 @@ class HomeCtl {
 }
 
 module.exports = new HomeCtl()
+
