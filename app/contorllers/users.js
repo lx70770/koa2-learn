@@ -4,7 +4,12 @@ const { secret } = require('../config')
 
 class UserCtl {
   async find(ctx) {
-    ctx.body = await User.find()
+    let { pageSize = 10, pageNumber = 1 } = ctx.query
+    pageSize = Math.max(Math.floor(ctx.query.pageSize * 1), 1)
+    pageNumber = Math.max(ctx.query.pageNumber * 1, 1) - 1
+    ctx.body = await User.find({ name: new RegExp(ctx.query.q) })
+      .limit(pageSize)
+      .skip(pageSize * pageNumber)
   }
 
   async findById(ctx) {
